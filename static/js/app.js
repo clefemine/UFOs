@@ -8,7 +8,7 @@ function buildTable(data) {
   // First, clear out any existing data
   tbody.html("");
 
-  // Next, loop through each object in the data
+  //  loop through each object in the data
   // and append a row and cells for each value in the row
   data.forEach((dataRow) => {
     // Append a row to the table body
@@ -26,7 +26,6 @@ function buildTable(data) {
 // Keep track of all filters
 var filters = {};
 
-// This function will replace your handleClick function
 function updateFilters() {
   var changedElement = d3.select(this).select("input");
   var elementValue= changedElement.property("value");
@@ -74,14 +73,12 @@ Object.entries(filters).forEach(([key, value]) => {
 
 });
 
-  // Finally, rebuild the table using the filtered Data
+  // rebuild the table using the filtered Data
   buildTable(filteredData);
 }
 
 // Attach an event to listen for changes to each filter
-// Hint: You'll need to select the event and what it is listening for within each set of parenthesis
 d3.selectAll(".filter").on("change", updateFilters);
-// d3.selectAll("#filter-btn").on("click", updateFilters);
 
 // Build the table when the page loads
 buildTable(tableData);
